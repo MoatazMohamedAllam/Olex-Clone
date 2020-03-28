@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<script type="text/javascript" src="{% static 'js/jquery.leanModal.min.js' %}"></script>
+<link href="{% static 'css/jquery.uls.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/jquery.uls.grid.css' %}" rel="stylesheet"/>
+<link href="{% static 'css/jquery.uls.lcd.css' %}" rel="stylesheet"/>
+<!-- Source -->
+<script src="js/jquery.uls.data.js"></script>
+<script src="js/jquery.uls.data.utils.js"></script>
+<script src="js/jquery.uls.lcd.js"></script>
+<script src="js/jquery.uls.languagefilter.js"></script>
+<script src="js/jquery.uls.regionfilter.js"></script>
+<script src="js/jquery.uls.core.js"></script>
+
+<link rel="stylesheet" href="css/flexslider.css" media="screen" />
+
+
+
+	<div class="single-page main-grid-border">
+		<div class="container">
+
+			<div class="product-desc">
+				<div class="col-md-7 product-view">
+					<h2>{{ product.name }}</h2>
+					<p> <i class="glyphicon glyphicon-map-marker"></i><a href="#">state</a>, <a href="#">city</a>| Added at {{product.created}}, Ad ID: {{product.id}}</p>
+					<div class="flexslider">
+						<ul class="slides">
+							{% if product.photo_main %}
+								<li data-thumb="{{ product.photo_main.url }}">
+									<img src="{{ product.photo_main.url }}" />
+								</li>
+							{% endif %}
+
+							{% if product.photo_1 %}
+								<li data-thumb="{{ product.photo_1.url }}">
+									<img src="{{ product.photo_1.url }}" />
+								</li>
+							{% endif %}
+
+							{% if product.photo_2 %}
+								<li data-thumb="{{ product.photo_2.url }}">
+									<img src="{{ product.photo_2.url }}" />
+								</li>
+							{% endif %}
+
+							{% if product.photo_3 %}
+								<li data-thumb="{{ product.photo_3.url }}">
+									<img src="{{ product.photo_3.url }}" />
+								</li>
+							{% endif %}
+
+							{% if product.photo_4 %}
+								<li data-thumb="{{ product.photo_4.url }}">
+									<img src="{{ product.photo_4.url }}" />
+								</li>
+							{% endif %}
+
+							{% if product.photo_5 %}
+								<li data-thumb="{{ product.photo_5.url }}">
+									<img src="{{ product.photo_5.url }}" />
+								</li>
+							{% endif %}
+
+							{% if product.photo_6 %}
+								<li data-thumb="{{ product.photo_6.url }}">
+									<img src="{{ product.photo_6.url }}" />
+								</li>
+							{% endif %}
+						</ul>
+					</div>
+					<!-- FlexSlider -->
+					  <script defer src="{% static 'js/jquery.flexslider.js' %}"></script>
+					<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
+
+						<script>
+					// Can also be used with $(document).ready()
+					$(window).load(function() {
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						controlNav: "thumbnails"
+					  });
+					});
+					</script>
+					<!-- //FlexSlider -->
+					<div class="product-details">
+						<h4>Brand : <a href="#">{{product.brand.name}}</a></h4>
+						<h4>Views : <strong>150</strong></h4>
+						<p><strong>Display </strong>: 1.5 inch HD LCD Touch Screen</p>
+						<p><strong>Summary</strong> : {{product.description}}</p>
+
+					</div>
+				</div>
+				<div class="col-md-5 product-details-grid">
+					<div class="item-price">
+						<div class="product-price">
+							<p class="p-price">Price</p>
+							<h3 class="rate">$ {{product.price}}</h3>
+							<div class="clearfix"></div>
+						</div>
+						<div class="condition">
+							<p class="p-price">Condition</p>
+							<h4>{{product.condition}}</h4>
+							<div class="clearfix"></div>
+						</div>
+						<div class="itemtype">
+							<p class="p-price">Item Type</p>
+							<h4>Phones</h4>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="interested text-center">
+						<h4>Interested in this Ad?<small> Contact the Seller!</small></h4>
+						<p><i class="glyphicon glyphicon-earphone"></i>00-85-9875462655</p>
+					</div>
+						<div class="tips">
+						<h4>Safety Tips for Buyers</h4>
+							<ol>
+								<li><a href="#">Contrary to popular belief.</a></li>
+								<li><a href="#">Contrary to popular belief.</a></li>
+								<li><a href="#">Contrary to popular belief.</a></li>
+								<li><a href="#">Contrary to popular belief.</a></li>
+								<li><a href="#">Contrary to popular belief.</a></li>
+								<li><a href="#">Contrary to popular belief.</a></li>
+								<li><a href="#">Contrary to popular belief.</a></li>
+								<li><a href="#">Contrary to popular belief.</a></li>
+								<li><a href="#">Contrary to popular belief.</a></li>
+							</ol>
+						</div>
+				</div>
+			<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--//single-page-->
+{% endblock %}

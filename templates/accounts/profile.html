@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    
+    .bg-steel {
+        background-color: #5f788a;
+      }
+      
+      .site-header .navbar-nav .nav-link {
+        color: #cbd5db;
+      }
+      
+      .site-header .navbar-nav .nav-link:hover {
+        color: #ffffff;
+      }
+      
+      .site-header .navbar-nav .nav-link.active {
+        font-weight: 500;
+      }
+      
+      .content-section {
+        background: #ffffff;
+        padding: 10px 20px;
+        border: 1px solid #dddddd;
+        border-radius: 3px;
+        margin-bottom: 20px;
+      }
+      
+      .article-title {
+        color: #444444;
+      }
+      
+      a.article-title:hover {
+        color: #428bca;
+        text-decoration: none;
+      }
+      
+      .article-content {
+        white-space: pre-line;
+      }
+      
+      .article-img {
+        height: 65px;
+        width: 65px;
+        margin-right: 16px;
+      }
+      
+      .article-metadata {
+        padding-bottom: 1px;
+        margin-bottom: 4px;
+        border-bottom: 1px solid #e3e3e3
+      }
+      
+      .article-metadata a:hover {
+        color: #333;
+        text-decoration: none;
+      }
+      
+      .article-svg {
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+      }
+      
+      .account-img {
+        height: 125px;
+        width: 125px;
+        margin-right: 20px;
+        margin-bottom: 16px;
+        border-radius: 50%;
+        float: left;
+      }
+      
+      .media-body {
+          margin-top: 40px;
+      }
+      .div-btn button{
+          background-color: #f3c500;
+          color: #fff;
+          margin-top: 10px;;
+          margin-left: 326px;;
+      }
+      .div-btn button:hover{
+          background-color:  #01a185;
+      }
+      
+     
+      
+</style>
+
+<br>
+<br>
+<br>
+<div class="container">
+    {% include 'partials/_alerts.html' %}
+<div class="content-section">
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+      <div class="media-body">
+        <h1 class="account-heading">{{ user.username}}</h1>
+        <p class="text-secondary">{{ user.email}}</p>
+        <br>
+       
+        {{ p_form.image | as_crispy_field}}
+       
+      </div>
+    </div>
+    <div>
+
+    
+        
+            <legend class="border-bottom mb-4">Profile Info</legend>
+
+            <div class="sign-u">
+                <div class="sign-up2">
+                    {{ u_form.username | as_crispy_field }}
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+          
+            <div class="sign-u">
+                <div class="sign-up2">
+                    {{ u_form.email | as_crispy_field }}
+                    
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="sign-u">
+                <div class="sign-up2">
+                    
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        
+        <div class="div-btn">
+            <button  class="btn btn-outline-info" type="submit">Update</button>
+        </div>
+    </form>
+</div>
+
+  </div>
+</div>
+
+{% endblock %}
