@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages,auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+from .models import Profile
 from .forms import UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 
@@ -13,6 +14,7 @@ def register(request):
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
+        
 
         #check if passwords matched
         if password == password2:
@@ -30,8 +32,11 @@ def register(request):
                     #every thing is valid
                     user =User.objects.create_user(username=username,
                                                     password=password,
-                                                    email=email)
+                                                    email=email,
+                                                    )
                     user.save()
+                    
+
                     messages.success(request,'you are now registered and can login')
                     return redirect('accounts:login')
         else:

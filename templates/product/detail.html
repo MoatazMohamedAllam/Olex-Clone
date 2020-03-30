@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load product_tags %}
 {% load static %}
 
 {% block content %}
@@ -114,7 +115,11 @@
 					</div>
 					<div class="interested text-center">
 						<h4>Interested in this Ad?<small> Contact the Seller!</small></h4>
-						<p><i class="glyphicon glyphicon-earphone"></i>00-85-9875462655</p>
+						{% if user.is_authenticated %}
+							<p><i class="glyphicon glyphicon-earphone"></i>{{ product.owner.profile.phone }}</p>
+						{% else %}
+							<p><i class="glyphicon glyphicon-earphone"></i>{{ product.owner.profile.phone|hash_Phone }}</p>
+						{% endif %}
 					</div>
 						<div class="tips">
 						<h4>Safety Tips for Buyers</h4>
