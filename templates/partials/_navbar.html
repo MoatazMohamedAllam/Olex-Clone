@@ -6,7 +6,7 @@
     <div class="header-right">
       {% if user.is_authenticated %}
         <a class="account" style="margin-right:20px;" href="{% url 'accounts:profile' %}">My Profile</a>
-        <a class="account" style="margin-right:20px;" href="post-ad.html">Post Free Ad</a>
+        <a class="account" style="margin-right:20px;" href="{% url 'products:add_advertise' %}">Post Free Ad</a>
         <a class="account" href="javascript:{document.getElementById('logout').submit()}">
           <i class="fas fa-sign-out-alt"></i>Logout
         </a>

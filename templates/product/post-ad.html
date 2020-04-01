@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+	<!-- Submit Ad -->
+	<div class="submit-ad main-grid-border">
+		<div class="container">
+			<h2 class="head">Post an Ad</h2>
+			<div class="post-ad-form">
+				<form action="{% url 'products:add_advertise' %}" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					
+					<label>Select Category <span>*</span></label>
+					<select class="" name="category">
+					  <option>Select Category</option>
+					  {% for category in categories  %}
+						  <option value="{{ category }}">{{ category }}</option>
+					  {% endfor %}
+					</select>
+					<div class="clearfix"></div>
+
+					<label>Ad Title <span>*</span></label>
+					<input type="text" name="name" class="phone" placeholder="">
+					<div class="clearfix"></div>
+
+					<label>Ad Description <span>*</span></label>
+					<textarea class="mess" name="description" placeholder="Write few lines about your product"></textarea>
+					<div class="clearfix"></div>
+
+					<label>Ad Brand</label>
+					<input type="text" name="brand" class="phone" placeholder="">
+					<div class="clearfix"></div>
+
+					<label>Price</label>
+					<input type="number" name="price" placeholder="">
+					<div class="clearfix"></div>
+
+					<label>Select Category <span>*</span></label>
+					<select class="" name="city_name">
+					  <option>Select City</option>
+					  {% for key,value in cities_choices.items  %}
+						  <option value="{{ key }}">{{ value }}</option>
+					  {% endfor %}
+					</select>
+					<div class="clearfix"></div>
+
+				<div class="upload-ad-photos">
+
+					<label>Main Photo<span>*</span> :</label>	
+					<div class="photos-upload-view">
+						<div>
+							<input type="file" name="photo_main"/>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<label>photo_1 :</label>	
+					<div class="photos-upload-view">
+						<div>
+							<input type="file"name="photo_1" />
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<label>photo_2 :</label>	
+					<div class="photos-upload-view">
+						<div>
+							<input type="file"name="photo_2" />
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<label>photo_3 :</label>	
+					<div class="photos-upload-view">
+						<div>
+							<input type="file"name="photo_3" />
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<label>photo_4 :</label>	
+					<div class="photos-upload-view">
+						<div>
+							<input type="file"name="photo_4" />
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<label>photo_5 :</label>	
+					<div class="photos-upload-view">
+						<div>
+							<input type="file"name="photo_5" />
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<label>photo_6 :</label>	
+					<div class="photos-upload-view">
+						<div>
+							<input type="file"name="photo_6" />
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+				</div>
+					<div class="personal-details">
+						<input type="hidden" name="owner" value="{{ user }}">
+						<label>Your Name <span>*</span></label>
+						<input type="text" class="name" value="{{user.username}}" disabled>
+						<div class="clearfix"></div>
+						<label>Your Mobile No <span>*</span></label>
+						<input type="text" class="phone" value="{{ user.profile.phone }}" disabled>
+						<div class="clearfix"></div>
+						<label>Your Email Address<span>*</span></label>
+						<input type="text" class="email"  value="{{user.email}}" disabled>
+						<div class="clearfix"></div>
+						<p class="post-terms">By clicking <strong>post Button</strong> you accept our <a href="terms.html" target="_blank">Terms of Use </a> and <a href="privacy.html" target="_blank">Privacy Policy</a></p>
+					<input type="submit" value="Post">					
+					<div class="clearfix"></div>
+					
+					</div>
+				</form>
+			</div>
+		</div>	
+	</div>
+	<!-- // Submit Ad -->
+
+{% endblock  %}
+
+	

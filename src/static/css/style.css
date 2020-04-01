@@ -3027,6 +3027,20 @@ ul.privacy-start {
     -ms-transition: 0.5s all;
 	float: left;
 }
+.post-ad-form input[type="number"] {
+    padding: 10px 10px 10px 10px;
+    width: 70%;
+    margin-bottom: 25px;
+    border: 1px solid #01a185;
+    outline: none;
+    color: #555;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+	float: left;
+}
 .post-ad-form textarea {
     height: 180px;
     outline: none;
@@ -3039,6 +3053,14 @@ ul.privacy-start {
     color: #555;
 }
 .post-ad-form input[type="text"]:hover,.post-ad-form textarea:hover {
+    border: 1px solid #f3c500;
+    transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+.post-ad-form input[type="number"]:hover{
     border: 1px solid #f3c500;
     transition:0.5s all;
 	-webkit-transition:0.5s all;

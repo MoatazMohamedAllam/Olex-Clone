@@ -1,8 +1,11 @@
-from django.shortcuts import render
-from .models import Product,Category
+from django.shortcuts import render,redirect
+from .models import Product,Category,Brand
 from django.core.paginator import EmptyPage,PageNotAnInteger,Paginator
 from django.db.models import Count
 from .choices import cities_choices
+from django.contrib import messages,auth
+from django.contrib.auth.decorators import login_required
+
 
 
 def index(request):
@@ -79,3 +82,65 @@ def search(request):
         'values':request.GET
     }
     return render(request,'product/product_list.html',context)
+
+
+
+@login_required
+def add_advertise(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        category = request.POST['category']
+        description = request.POST['description']
+        brand = request.POST.get('brand','')
+        price = request.POST['price']
+        city_name = request.POST['city_name']
+        photo_main = request.FILES['photo_main']
+        photo_1 = request.FILES.get('photo_1','')
+        photo_2 = request.FILES.get('photo_2','')
+        photo_3 = request.FILES.get('photo_3','')
+        photo_4 = request.FILES.get('photo_4','')
+        photo_5 = request.FILES.get('photo_5','')
+        photo_6 = request.FILES.get('photo_5','')
+
+        cat = Category.objects.get(name=category)
+        if brand:
+            brand = Brand.objects.get(name=brand)
+        else:
+            brand = None
+        
+
+        product = Product(name=name,
+                            description=description,
+                            category=cat,
+                            owner=request.user,
+                            brand=brand,
+                            price=price,
+                            city_name=city_name,
+                            photo_main=photo_main,
+                            photo_1=photo_1,
+                            photo_2=photo_2,
+                            photo_3=photo_3,
+                            photo_4=photo_4,
+                            photo_5=photo_5,
+                            )
+        print(product)
+        product.save()
+        messages.success(request,'you have been post your advertise successfully!')
+
+        return redirect('products:product_list')
+        
+       
+
+
+
+
+
+
+    categories = Category.objects.all()
+
+
+    context={
+        'categories':categories,
+        'cities_choices':cities_choices,
+    }
+    return render(request,'product/post-ad.html',context)
