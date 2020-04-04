@@ -1,0 +1,41 @@
+#header{
+        background-color: #FDFDFD;
+        color: #01a185;
+    }
+
+
+#head a {
+        font-family: 'Ubuntu Condensed', sans-serif;
+        font-size: 50px;
+        color: #01a185;
+        text-decoration:none;
+    }
+#head a .one {
+        color: #01a185;
+    }
+#head a .two {
+        color:#f3c500;
+    }
+div.breadcrumbs {
+        background: #01a185;
+
+    }
+#user-tools a:visited{
+        color: #01a185;
+    }
+.module h2, .module caption, .inline-group h2{
+        background: #01a185;
+
+    }
+.button.default, input[type=submit].default, .submit-row input.default {
+        background: #f3c500;
+    }
+input[type=submit].default:hover{
+        background: #01a185;
+    }
+.button, input[type=submit], input[type=button], .submit-row input, a.button{
+        background: #f0d45b;
+    }
+input[type=submit]:hover{
+    background: #2bb9a1;
+    }

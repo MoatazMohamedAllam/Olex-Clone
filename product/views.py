@@ -39,7 +39,6 @@ def product_list(request,category_slug=None):
     context ={
         'product_list':paged_products,
         'category_list':categoryList,
-        'categories': categories,
         'category':category,
         'trending_products':trending_products,
         'cities_choices':cities_choices
@@ -65,10 +64,6 @@ def search(request):
         if city:
             queryset_list =queryset_list.filter(city_name__icontains=city)
 
-    if 'category' in request.GET:
-        category = request.GET['category']
-        if category:
-            queryset_list=queryset_list.filter(category__name__icontains=category)
 
     if 'name' in request.GET:
         name = request.GET['name']
@@ -77,7 +72,6 @@ def search(request):
 
     context={
         'product_list':queryset_list,
-        'categories': categories,
         'cities_choices':cities_choices,
         'values':request.GET
     }

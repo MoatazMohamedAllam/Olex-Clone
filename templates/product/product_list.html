@@ -23,17 +23,7 @@
 											{% endfor %}
 				      </select>
 					</div>
-					<div class="browse-category ads-list">
-						<label>Browse Categories</label>
-						<select name="category" class="selectpicker show-tick" data-live-search="true">
-							<option selected style="display:none;color:#eee;">Select Category</option>
-							{% for category in categories %}
-						  	<option value="{{category.name}}"
-								>{{category.name}}
-							</option>
-							{% endfor %}
-						</select>
-					</div>
+					
 					<div class="search-product ads-list">
 						<label>Search for a specific product</label>
 						<div class="search">
@@ -69,7 +59,7 @@
 				<br>
 			{% endif %}
 			<ol class="breadcrumb" style="margin-bottom: 5px;">
-			  <li><a href="index.html">Home</a></li>
+			  <li><a href="{% url 'products:index' %}">Home</a></li>
 				<li class="active">All Ads</li>
 			  <li class="active">{{category.name}}</li>
 			</ol>

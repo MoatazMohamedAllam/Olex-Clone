@@ -119,6 +119,7 @@
 							<p><i class="glyphicon glyphicon-earphone"></i>{{ product.owner.profile.phone }}</p>
 						{% else %}
 							<p><i class="glyphicon glyphicon-earphone"></i>{{ product.owner.profile.phone|hash_Phone }}</p>
+							<p><a href="{% url 'accounts:register' %}">SignUp</a> or <a href="{% url 'accounts:login' %}">SignIn</a> To see seller phone number</p>
 						{% endif %}
 					</div>
 						<div class="tips">

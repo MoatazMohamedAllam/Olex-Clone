@@ -1,0 +1,14 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block branding %}
+<h1 id="head">
+        <a href="{% url 'products:index' %}"><span class="one">Re</span class="two"><span>sale</span><span> (Admin)</span></a>
+        
+</h1>
+{% endblock %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %} 
+    
